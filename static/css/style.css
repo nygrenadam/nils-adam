@@ -1,0 +1,113 @@
+/* static/css/style.css */
+:root {
+    /* Define base font settings as CSS variables for potential reuse */
+    --base-font-weight: 400;
+    --base-font-width: 100;
+    --base-font-slant: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    /* Using standard Roboto for body */
+    font-family: 'Roboto', 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    cursor: default;
+}
+
+.content {
+    max-width: 700px; /* Adjusted width */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container {
+    position: relative;
+    height: 120px; /* Adjusted height for Roboto */
+    margin-bottom: 2.5rem; /* Increased margin */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-wrapper {
+    white-space: nowrap;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    /* Apply Roboto Flex */
+    font-family: 'Roboto Flex', sans-serif;
+    /* Base font size */
+    font-size: 4.2rem;
+    /* Set initial variation settings using variables */
+    font-variation-settings:
+            'wght' var(--base-font-weight),
+            'wdth' var(--base-font-width),
+            'slnt' var(--base-font-slant);
+    letter-spacing: 1px; /* Adjusted spacing */
+    /* Include font-variation-settings in will-change */
+    will-change: transform, font-variation-settings;
+    user-select: none;
+    min-width: 5px; /* Reduced min-width */
+    vertical-align: middle;
+    line-height: 1;
+    /* Add transition for smoother font variation changes */
+    /* Note: This interacts with JS updates, adjust smoothing constants if needed */
+    /* transition: font-variation-settings 0.1s linear; */ /* Optional: CSS smoothing */
+}
+
+.letter-spacer {
+    display: inline-block;
+    width: 45px; /* Adjusted spacer width */
+    vertical-align: middle;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Social Links Styling --- */
+.social-links {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px; /* Adjusted gap */
+    z-index: 1;
+    position: relative;
+    max-width: 90%;
+}
+
+.social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8rem; /* Adjusted icon size */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Adjusted hover scale */
+}
+/* --- End Social Links Styling --- */
