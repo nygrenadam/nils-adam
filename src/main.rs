@@ -64,11 +64,9 @@ async fn handler() -> Html<String> {
             <!-- Font Awesome -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-            <!-- Google Fonts: Roboto Flex (Variable) -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <!-- Requesting Weight (100-1000), Width (75-125), Slant (-10 to 0) axes -->
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
 
             <!-- Google Fonts: Roboto for body text (Regular weight) -->
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
@@ -80,6 +78,7 @@ async fn handler() -> Html<String> {
         <body>
             <div class="content">
                 <div class="title-container">
+                <canvas id="debug-canvas"></canvas>
                     <div class="title-wrapper">
                         <span class="letter" data-char="N">N</span>
                         <span class="letter" data-char="I">I</span>
@@ -90,6 +89,7 @@ async fn handler() -> Html<String> {
                         <span class="letter" data-char="D">D</span>
                         <span class="letter" data-char="A">A</span>
                         <span class="letter" data-char="M">M</span>
+
                     </div>
                 </div>
                 <p>

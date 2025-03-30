@@ -24,8 +24,8 @@ body {
 }
 
 .content {
-    max-width: 700px; /* Adjusted width */
-    padding: 2rem;
+    max-width: 50rem; /* Adjusted width */
+    padding: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,7 @@ body {
     position: relative;
     height: 120px; /* Adjusted height for Roboto */
     margin-bottom: 2.5rem; /* Increased margin */
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,13 +51,24 @@ body {
     /* Apply Roboto Flex */
     font-family: 'Roboto Flex', sans-serif;
     /* Base font size */
-    font-size: 4.2rem;
+    font-size: 4rem;
+    font-optical-sizing: auto;
     /* Set initial variation settings using variables */
     font-variation-settings:
             'wght' var(--base-font-weight),
             'wdth' var(--base-font-width),
             'slnt' var(--base-font-slant);
-    letter-spacing: 1px; /* Adjusted spacing */
+            "GRAD" 0,
+            "XOPQ" 96,
+            "XTRA" 468,
+            "YOPQ" 79,
+            "YTAS" 750,
+            "YTDE" -203,
+            "YTFI" 738,
+            "YTLC" 514,
+            "YTUC" 712;
+
+    letter-spacing: 1.2rem; /* Adjusted spacing */
     /* Include font-variation-settings in will-change */
     will-change: transform, font-variation-settings;
     user-select: none;
@@ -76,9 +87,11 @@ body {
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    opacity: 0.9;
+    font-size: 0.8rem;
+    font-optical-sizing: auto;
+    letter-spacing: 0.35rem;
+    line-height: 1;
+    opacity: 0.75;
     position: relative;
     z-index: 1;
     max-width: 100%;
@@ -88,11 +101,11 @@ p {
 
 /* --- Social Links Styling --- */
 .social-links {
-    margin-top: 2.5rem;
+    margin-top: 0.8rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 28px; /* Adjusted gap */
+    gap: 2rem; /* Adjusted gap */
     z-index: 1;
     position: relative;
     max-width: 90%;
@@ -101,9 +114,10 @@ p {
 .social-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.8rem; /* Adjusted icon size */
+    font-optical-sizing: auto;
+    font-size: 1.4rem; /* Adjusted icon size */
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-    opacity: 0.8;
+    opacity: 0.3;
 }
 
 .social-links a:hover {
@@ -111,3 +125,14 @@ p {
     transform: scale(1.1); /* Adjusted hover scale */
 }
 /* --- End Social Links Styling --- */
+
+#debug-canvas {
+    position: fixed; /* Changed from absolute */
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Use viewport units */
+    height: 100vh; /* Use viewport units */
+    z-index: 10;  /* Draw above background but below most UI */
+    pointer-events: none; /* Click through the canvas */
+    display: block; /* Ensure it takes up space */
+}

@@ -2,4 +2,4 @@
 
 pub const PARAGRAPH_1: &str = " ";
 
-pub const PARAGRAPH_2: &str = "new album soon";
+pub const PARAGRAPH_2: &str = "nilsadammusic@gmail.com";
