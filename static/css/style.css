@@ -1,63 +1,78 @@
 /* static/css/style.css */
 :root {
-    /* Define base font settings as CSS variables for potential reuse */
-    --base-font-weight: 400;
+    /* Define base font settings as CSS variables */
+    --base-font-weight: 250;
     --base-font-width: 100;
     --base-font-slant: 0;
+
+    /* Define a responsive root font size. Adjust the values as needed. */
+    font-size: clamp(13px, 1.2vw + 0.25rem, 18px);
 }
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0; /* Remove previous padding-top */
     background-color: #000000;
     color: #ffffff;
-    /* Using standard Roboto for body */
     font-family: 'Roboto', 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Restore vertical centering */
     justify-content: center;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    /* Let overflow-y be visible or auto if needed, but avoid hidden */
+    overflow-y: auto;
     cursor: default;
+    box-sizing: border-box;
 }
 
 .content {
-    max-width: 50rem; /* Adjusted width */
-    padding: 10rem;
+    width: 90%;
+    max-width: 1200px;
+    /* Padding can be simpler now, mainly horizontal */
+    padding: clamp(1rem, 5vh, 3rem) clamp(1rem, 5vw, 4rem); /* Added some vertical padding back */
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .title-container {
     position: relative;
-    height: 120px; /* Adjusted height for Roboto */
-    margin-bottom: 2.5rem; /* Increased margin */
-    width: 90%;
+    /* No fixed height */
+    margin-bottom: clamp(1.5rem, 4vmin, 2.5rem);
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Ensure this container doesn't clip visually */
+    overflow: visible;
 }
 
 .title-wrapper {
     white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    /* Ensure this wrapper doesn't clip visually */
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .letter {
     display: inline-block;
     position: relative;
-    /* Apply Roboto Flex */
     font-family: 'Roboto Flex', sans-serif;
-    /* Base font size */
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 9vmin, 5rem);
     font-optical-sizing: auto;
-    /* Set initial variation settings using variables */
     font-variation-settings:
             'wght' var(--base-font-weight),
             'wdth' var(--base-font-width),
-            'slnt' var(--base-font-slant);
+            'slnt' var(--base-font-slant),
             "GRAD" 0,
             "XOPQ" 96,
             "XTRA" 468,
@@ -68,44 +83,50 @@ body {
             "YTLC" 514,
             "YTUC" 712;
 
-    letter-spacing: 1.2rem; /* Adjusted spacing */
-    /* Include font-variation-settings in will-change */
+    letter-spacing: clamp(0.2rem, 2.5vmin, 1rem);
     will-change: transform, font-variation-settings;
     user-select: none;
-    min-width: 5px; /* Reduced min-width */
+    -webkit-user-select: none;
+    margin: 0.01rem;
+    padding: 0.01rem;
     vertical-align: middle;
     line-height: 1;
-    /* Add transition for smoother font variation changes */
-    /* Note: This interacts with JS updates, adjust smoothing constants if needed */
-    /* transition: font-variation-settings 0.1s linear; */ /* Optional: CSS smoothing */
+    pointer-events: auto;
+    /* Ensure letters themselves don't clip content (shouldn't matter with transform) */
+    overflow: visible;
 }
 
 .letter-spacer {
     display: inline-block;
-    width: 45px; /* Adjusted spacer width */
+    width: clamp(0.8rem, 3vmin, 1.5rem);
     vertical-align: middle;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-p {
+p { /* PARAGRAPH TEXT */
     font-size: 0.8rem;
     font-optical-sizing: auto;
-    letter-spacing: 0.35rem;
-    line-height: 1;
-    opacity: 0.75;
+    letter-spacing: 0.08em;
+    font-weight: lighter;
+    line-height: 1.4;
+    opacity: 0.25;
     position: relative;
     z-index: 1;
     max-width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: clamp(0.5rem, 2vh, 1rem);
+    margin-bottom: clamp(0.5rem, 2vh, 1rem);
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* --- Social Links Styling --- */
 .social-links {
-    margin-top: 0.8rem;
+    margin-top: clamp(0.8rem, 3vh, 1.5rem);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* Adjusted gap */
+    gap: clamp(1rem, 4vw, 2rem);
     z-index: 1;
     position: relative;
     max-width: 90%;
@@ -115,24 +136,55 @@ p {
     color: #ffffff;
     text-decoration: none;
     font-optical-sizing: auto;
-    font-size: 1.4rem; /* Adjusted icon size */
+    font-size: clamp(1.1rem, 4vmin, 1.6rem);
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
     opacity: 0.3;
 }
 
 .social-links a:hover {
     opacity: 1;
-    transform: scale(1.1); /* Adjusted hover scale */
+    transform: scale(1.1);
 }
 /* --- End Social Links Styling --- */
 
+/* --- START: Contact Button Styling --- */
+.contact-button {
+    display: inline-block;
+    margin-top: clamp(1.5rem, 5vh, 2.5rem);
+    padding: clamp(0.4rem, 1.2vh, 0.6rem) clamp(1rem, 4vw, 1.8rem);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.contact-button:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+/* --- END: Contact Button Styling --- */
+
+
 #debug-canvas {
-    position: fixed; /* Changed from absolute */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;  /* Use viewport units */
-    height: 100vh; /* Use viewport units */
-    z-index: 10;  /* Draw above background but below most UI */
-    pointer-events: none; /* Click through the canvas */
-    display: block; /* Ensure it takes up space */
+    width: 100vw;
+    height: 100vh;
+    /* Ensure canvas is behind everything interactive */
+    z-index: -1;
+    pointer-events: none;
+    display: block;
 }

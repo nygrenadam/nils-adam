@@ -9,6 +9,8 @@ use tower_http::services::ServeDir;
 mod content;
 mod social_links;
 
+
+
 #[tokio::main]
 async fn main() {
     // Define the router
@@ -49,6 +51,7 @@ async fn handler() -> Html<String> {
     let paragraph1 = content::PARAGRAPH_1;
     let paragraph2 = content::PARAGRAPH_2;
     let social_links = social_links::SOCIAL_LINKS_HTML;
+    let mailto_link = format!("mailto:{}", social_links::CONTACT_EMAIL); // Create mailto link
 
     // Construct the HTML using format!
     // Link to the external CSS and JS files
@@ -103,14 +106,22 @@ async fn handler() -> Html<String> {
                      {}
                 </div>
 
+                <!-- START: Added Contact Button -->
+                <a href="{}" class="contact-button">CONTACT</a>
+                <!-- END: Added Contact Button -->
+
             </div>
 
             <!-- Link to external JavaScript file -->
+            <!-- Make sure you are using the correct JS file -->
             <script src="/static/js/physics.js"></script>
         </body>
         </html>
         "#,
-        paragraph1, paragraph2, social_links
+        paragraph1,
+        paragraph2,
+        social_links,
+        mailto_link // Pass the mailto link to format!
     );
 
     Html(html_content)

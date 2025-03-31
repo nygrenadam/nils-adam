@@ -2,4 +2,4 @@
 
 pub const PARAGRAPH_1: &str = " ";
 
-pub const PARAGRAPH_2: &str = "nilsadammusic@gmail.com";
+pub const PARAGRAPH_2: &str = "please put the letters back in the right order";

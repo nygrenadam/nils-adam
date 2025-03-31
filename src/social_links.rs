@@ -9,3 +9,6 @@ pub const SOCIAL_LINKS_HTML: &str = r##"
     <a href="https://soundcloud.com/nilsadam" target="_blank" rel="noopener noreferrer" aria-label="Link to SoundCloud profile"><i class="fab fa-soundcloud"></i></a>
     <a href="https://www.facebook.com/profile.php?id=61559392451396" target="_blank" rel="noopener noreferrer" aria-label="Link to Facebook profile"><i class="fab fa-facebook"></i></a>
 "##;
+
+// Define your email address here
+pub const CONTACT_EMAIL: &str = "nilsadammusic@gmail.com";
